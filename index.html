@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello UMDP</title>
+    <style>
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id ='app'></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- <script> -->
+        <div id="root"></div>
+        <script type="text/babel">
+    //   ReactDOM.render(
+    //     'Hello UMDP', document.getElementById('app')
+    //   )
+
+        const root = ReactDOM.createRoot(document.getElementById('app'))
+        root.render(
+        //     React.createElement(
+        //     'h1',
+        //     {
+        //         style: { color: '#ff0000'}
+        //     },
+        //     'Hello UMDP'
+        // )
+
+        // <h1 className='text-danger'>Hello UMDP </h1>
+
+         <div>
+             <h1 className='text-danger'>Hello UMDP </h1>
+             <p>Universitas MDP memiliki visi menjadi perguruan tinggi yang berdaya saing global dan 
+                 inovasi berkelanjutan dalam bidang rekayasa dan bisnis berbasiskan 
+                 teknologi informasi pada thaun 2040</p>
+             </div>
+
+        )
+
+        
+    </script>
+</body>
+</html>

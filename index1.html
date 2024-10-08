@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar React </title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/jsx">
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+
+        // function Header(){ //komponen
+        //     return <h1>Belajar React</h1>;
+        // }
+
+        function Header(props){ //mengirim properti sebagai informasi untuk sebuah komponen disebut props
+            return <h1>Belajar React {props.title}</h1>;
+        }
+
+        // root.render(<Header />);
+        function Homepage(){ //komponen (jika ad 2 komponen maka disebut komponen bersarang)
+            const mahasiswa = ['John','Doe','jane']; //array
+            return (
+                <div>
+                <Header title='Asyik Banget' />
+                <Header title='Mudah Sekali' />
+                <p>Belajar React itu menyenangkan</p>
+                <ul>
+                    {
+                        mahasiswa.map((nama)=>(
+                            <li key ={nama}>{nama}</li>
+                        ))
+                    }
+                    </ul>
+                </div>
+            );
+        }
+        root.render(<Homepage />);
+    </script>
+</body>
+</html>

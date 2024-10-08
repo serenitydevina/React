@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .text-success{
+            color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <di id="app"></di> 
+
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.getElementById('app')) 
+        // createElement
+        // root.render(
+        //     React.createElement(
+        //         'h1',
+        //         // {style : {color: 'blue'}},
+        //         {style : {color: 'blue', 'font-family': 'Verdana'}},
+        //         'Belajar React'
+        //     )
+        // )
+        // Template JSX
+        // root.render(
+        //     // bisa juga <div></div> selain <></>
+        //     <> 
+        //         <h1 className="text-success">Belajar React</h1>
+        //         <p>Belajar react menyenangkan</p>
+        //     </>
+        // )
+
+        //component
+        function Header({title}){
+            return <h1>Belajar React {title ? title : 'Asyik Banget'}</h1>;
+        }
+
+        function Footer(){
+            return <h6>&copy; 2024 Nama</h6>
+        }
+
+        function HomePage(){
+            const mahasiswa = [
+                {
+                    npm : "001",
+                    nama : "John",
+                    hobi : ["Belajar", "Ngoding"]
+                },
+                {
+                    npm : "002",
+                    nama : "Doe",
+                    hobi : ["Makan", "Main Game"]
+                },
+                {
+                    npm : "003",
+                    nama : "Jane",
+                    hobi : ["Memasak", "Belanja"]
+                }
+            ];
+
+            //state
+            const [like, setLike] = React.useState(0);
+            function handleClick(){
+                setLike(like + 1);
+            }
+            return <>
+                <Header/> 
+                <Header title='Mudah' />
+                <p>Belajar React menyenangkan!</p>
+                <table className="table table-stiped">
+                    <thead>
+                        <tr>
+                            <th>NPM</th>
+                            <th>Nama</th>
+                            <th>Hobi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            mahasiswa.map((mhs) => (
+                                <tr key={mhs.npm}>
+                                    <td>{mhs.npm}</td>
+                                    <td>{mhs.nama}</td>
+                                    <td>
+                                        <ul>
+                                            {mhs.hobi.map((hobi)=> (
+                                                <li key={hobi}>{hobi}</li>
+                                            ))}
+                                        </ul>
+                                    </td>
+                                    
+                                </tr>
+                            ))
+                        }  
+                    </tbody>
+                </table>
+                
+                <button onClick={handleClick}>Like {like}</button>
+                <Footer/>
+            </>;
+        }
+
+        root.render(<HomePage/>);
+    </script>
+</body>
+</html>
